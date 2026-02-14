@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Ti ❤️</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding-top:60px;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    font-family:Arial, Helvetica, sans-serif;
+    overflow:hidden;
+}
+
+.contenedor{
+    text-align:center;
+    color:white;
+    z-index:2;
+}
+
+h1{
+    font-size:30px;
+    margin-bottom:30px;
+    text-shadow:2px 2px 8px rgba(0,0,0,0.3);
+}
+
+button{
+    margin:15px;
+    padding:12px 25px;
+    font-size:16px;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+#si{
+    background:white;
+    color:#ff4e7a;
+}
+
+#si:hover{
+    transform:scale(1.1);
+}
+
+#no{
+    background:#ff4e7a;
+    color:white;
+}
+
+/* Corazones flotando */
+.corazon{
+    position:absolute;
+    bottom:-20px;
+    font-size:20px;
+    animation:flotar 6s linear infinite;
+    opacity:0.8;
+}
+
+@keyframes flotar{
+    0%{
+        transform:translateY(0);
+        opacity:0.8;
+    }
+    100%{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+    <h1>¿Quieres estar conmigo? ❤️</h1>
+    <button id="si">Sí</button>
+    <button id="no">No</button>
+</div>
+
+<script>
+// Botón SI
+document.getElementById("si").addEventListener("click", function(){
+    alert("Desde que llegaste a mi vida todo cambió ❤️");
+    alert("Prometo hacerte feliz todos los días 🥰");
+    window.open("https://www.youtube.com/watch?v=8mY-2jH0mF0", "_blank");
+});
+
+// Botón NO
+document.getElementById("no").addEventListener("click", function(){
+    alert("No acepto un no 😌 inténtalo otra vez ❤️");
+});
+
+// Crear corazones
+function crearCorazon(){
+    const corazon = document.createElement("div");
+    corazon.classList.add("corazon");
+    corazon.innerHTML = "❤️";
+    corazon.style.left = Math.random() * 100 + "vw";
+    corazon.style.fontSize = (Math.random() * 20 + 10) + "px";
+    corazon.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(corazon);
+
+    setTimeout(()=>{
+        corazon.remove();
+    },6000);
+}
+
+setInterval(crearCorazon,400);
+</script>
+
+</body>
+</html>
